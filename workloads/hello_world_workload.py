@@ -24,14 +24,14 @@
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-from gem5.resources.resource import Resource
+from gem5.resources.resource import obtain_resource
 
 from .custom_se_workload import CustomSEWorkload
 
 
 class HelloWorldWorkload(CustomSEWorkload):
     def __init__(self):
-        hello_world_bin = Resource("riscv-hello")
+        hello_world_bin = obtain_resource("riscv-hello")
         super().__init__(
             parameters={"binary": hello_world_bin, "arguments": []}
         )
